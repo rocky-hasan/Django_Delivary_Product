@@ -92,7 +92,65 @@
                     {% endfor %}
                 </div>
 
-                <a href='{% url 'order' %}' class="btn btn-dark mt-5">Place Order!</a>
+                <div class="form-group pt-3">
+                    <label for="name">Full Name</label>
+                    <input type="text" class="form-control" name="name" placeholder="Full Name" required>
+                </div>
+
+                 <div class="form-group pt-3">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" name="email" placeholder="Your Email" required>
+                </div>
+
+                <div class="form-group pt-3">
+                    <label for="street">Street</label>
+                    <input type="text" class="form-control" name="street" placeholder="Street" required>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-4 col-sm-12">
+                        <div class="form-group pt-3">
+                            <label for="city">City</label>
+                            <input type="text" class="form-control" name="city" placeholder="City" required>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-12">
+                        <div class="form-group pt-3">
+                            <label for="state">State</label>
+                            <input type="text" class="form-control" name="state" placeholder="State" required>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-12">
+                       <div class="form-group pt-3">
+                            <label for="zipcode">Zip Code</label>
+                            <input type="text" class="form-control" name="zipcode" placeholder="Zip Code" required>
+                       </div>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#submitModel">Submit Order!</button>
+                 {% comment %} <button  class="btn btn-dark mt-5">Place Order!</button> {% endcomment %}
+
+                 <!-- Modal -->
+                    <div class="modal fade" id="submitModel" tabindex="-1" role="dialog" aria-labelledby="submitModelLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="submitModelLabel">Submit Your Order!</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-light" data-dismiss="modal">Back</button>
+                            <button type="submit" class="btn btn-dark">Place Order!</button>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
             </form>
         </div>
     </div>

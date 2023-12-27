@@ -13,6 +13,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+AUTHENTICATION_BACKENDS=[
+    'django.contrib.auth.backends.ModelBackend'
+    'allauth.account.auth_backends.AuthenticationBackend'
+]
 
 # Application definition
 
@@ -22,10 +26,18 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'django.contrib.sites',
     'django.contrib.staticfiles',
     'customer',
     'restaurant',
+    
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+
 ]
+
+SITE_ID=1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -35,6 +47,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
 ]
 
 ROOT_URLCONF = 'deliveryapp.urls'
@@ -106,6 +119,8 @@ USE_TZ = True
 STATIC_URL = 'static/'
 MEDIA_URL= '/media/'
 MEDIA_ROOT= BASE_DIR / 'media'
+
+EMAIL_BACKEND='django.core.mail.backends.console.EmailBackend'
 
 
 # Default primary key field type
