@@ -14,8 +14,8 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 AUTHENTICATION_BACKENDS=[
-    'django.contrib.auth.backends.ModelBackend'
-    'allauth.account.auth_backends.AuthenticationBackend'
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
 # Application definition
@@ -63,6 +63,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+               
             ],
         },
     },
@@ -119,6 +120,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 MEDIA_URL= '/media/'
 MEDIA_ROOT= BASE_DIR / 'media'
+LOGIN_REDIRECT_URL='dashboard'
 
 EMAIL_BACKEND='django.core.mail.backends.console.EmailBackend'
 
@@ -127,3 +129,4 @@ EMAIL_BACKEND='django.core.mail.backends.console.EmailBackend'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+ACCOUNT_ADAPTER='restaurant.account_adapter.NoNewUserAccountAdapter'
